@@ -64,8 +64,13 @@ h1, h2, h3, h4 {
     padding: 5em 0em;
 }
 
-.secondary.pointing.menu .toc.item {
+.secondary.menu .toc.item {
     display: none;
+}
+
+.sub.logo.header {
+    color: #ffffff;
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 700px) {
