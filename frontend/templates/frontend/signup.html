@@ -1,0 +1,24 @@
+{% extends 'frontend/base_generic.html' %}
+
+{% block content %}
+    <div class="ui inverted grey vertical masthead center aligned segment">
+
+        {% block menu %}
+            {{ block.super }}
+        {% endblock %}
+        <div class="ui container">
+            <h1 class="ui inverted header">
+                Sign up for a free account
+            </h1>
+            <h2>Select below the type of account you want to create</h2>
+            <div class="ui basic segment">
+
+                <a href="{% url 'frontend:driver_signup' %}" class="ui huge primary button" role="button">I'm a driver</a>
+                <a href="{% url 'frontend:shipper_signup' %}" class="ui huge violet button" role="button">I'm a shipper</a>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

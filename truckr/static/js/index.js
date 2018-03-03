@@ -18,3 +18,9 @@ $(document)
             .sidebar('attach events', '.toc.item');
 
     });
+
+// to control the radio button
+$('.ui.checkbox').checkbox();
+
+// to invoke all dropdowns
+$('.ui.dropdown').dropdown();

@@ -1,0 +1,25 @@
+{% extends 'frontend/base_generic.html' %}
+
+{% block content %}
+    <div class="ui inverted orange vertical masthead center aligned segment">
+
+        {% block menu %}
+            {{ block.super }}
+        {% endblock %}
+
+        {% load semanticui %}
+        <div class="ui container">
+            <h2 class="ui inverted header">
+                Create your account
+            </h2>
+            <h3>Select below the type of account you want to create</h3>
+            <div class="ui basic segment">
+                {{ form.field }}
+{#                {% render_form driver_form %}#}
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
