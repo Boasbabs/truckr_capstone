@@ -76,6 +76,16 @@ h1, h2, h3, h4 {
     font-size: 2rem;
 }
 
+/*The home page is here*/
+
+#index-masthead {
+    background: url("/static/img/1.jpg") no-repeat fixed;
+}
+
+#signup, #signup-driver, #signup-shipper {
+    background: url("/static/img/9.jpg") no-repeat fixed;
+}
+
 @media only screen and (max-width: 700px) {
     .ui.fixed.menu {
         display: none !important;

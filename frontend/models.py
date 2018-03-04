@@ -2,15 +2,18 @@
 Insight from https://simpleisbetterthancomplex.com/ to Implement Multiple User Types
 """
 
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 from django.urls import reverse
 
 
-class User(AbstractUser):
+class User(AbstractBaseUser):
     """
     Extended the User model for the two users, driver and shipper
     """
+    name = models.CharField(max_length=30, unique=True)
+
+    USERNAME_FIELD = 'name'
     is_driver = models.BooleanField(default=False)
     is_shipper = models.BooleanField(default=False)
 
@@ -20,8 +23,8 @@ class Driver(models.Model):
     The model for driver who can drive the truck and get notification of order.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    # first_name = models.CharField(max_length=30)
+    # name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=20, unique=True)
     driver_license = models.CharField(max_length=15, unique=True)
     join_date = models.DateTimeField(auto_now=True)
@@ -45,6 +48,7 @@ class Shipper(models.Model):
     The model for the one who wants to send shipments/load
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    # name = models.CharField(max_length=30)
     company_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=20, unique=True)
     email = models.EmailField(unique=True)

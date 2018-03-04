@@ -1,5 +1,7 @@
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import User
@@ -10,8 +12,8 @@ def index(request):
     return render(request, "frontend/index.html", context={})
 
 
-def login(request):
-    return render(request, "frontend/login.html", context={})
+# def login(request):
+#     return render(request, "frontend/login.html", context={})
 
 
 class SignUpView(generic.TemplateView):
@@ -40,7 +42,7 @@ class DriverSignUpView(generic.CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return HttpResponse("Login !")
+        return redirect('frontend:index')
 
 
 class ShipperSignUpView(generic.CreateView):
