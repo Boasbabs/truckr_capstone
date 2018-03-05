@@ -11,9 +11,9 @@ class User(AbstractBaseUser):
     """
     Extended the User model for the two users, driver and shipper
     """
-    name = models.CharField(max_length=30, unique=True)
+    email = models.EmailField(max_length=100, unique=True)
 
-    USERNAME_FIELD = 'name'
+    USERNAME_FIELD = 'email'
     is_driver = models.BooleanField(default=False)
     is_shipper = models.BooleanField(default=False)
 
@@ -23,8 +23,7 @@ class Driver(models.Model):
     The model for driver who can drive the truck and get notification of order.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    # first_name = models.CharField(max_length=30)
-    # name = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=50, default="full name")
     phone_number = models.CharField(max_length=20, unique=True)
     driver_license = models.CharField(max_length=15, unique=True)
     join_date = models.DateTimeField(auto_now=True)
@@ -36,7 +35,7 @@ class Driver(models.Model):
 
     # TO STRING METHOD
     def __str__(self):
-        return "Driver: {0} {1}".format(self.first_name, self.last_name)
+        return "Driver: {0}".format(self.full_name,)
 
     # ABSOLUTE URL METHOD
     def get_absolute_url(self):
@@ -48,11 +47,10 @@ class Shipper(models.Model):
     The model for the one who wants to send shipments/load
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    # name = models.CharField(max_length=30)
-    company_name = models.CharField(max_length=50)
+    owner_name = models.CharField(max_length=50, default="owner name")
+    company_name = models.CharField(max_length=50, default="company name")
     phone_number = models.CharField(max_length=20, unique=True)
-    email = models.EmailField(unique=True)
-    join_date = models.DateTimeField('date joined')
+    join_date = models.DateTimeField(auto_now=True)
 
     # META CLASS
     class Meta:

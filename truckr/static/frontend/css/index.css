@@ -80,10 +80,12 @@ h1, h2, h3, h4 {
 
 #index-masthead {
     background: url("/static/img/1.jpg") no-repeat fixed;
+    background-size: cover;
 }
 
 #signup, #signup-driver, #signup-shipper {
     background: url("/static/img/9.jpg") no-repeat fixed;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 700px) {

@@ -59,5 +59,5 @@ class ShipperSignUpView(generic.CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return HttpResponse("Login shipper !")
+        # login(self.request, user)
+        return redirect('frontend:index')
