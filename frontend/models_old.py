@@ -1,8 +1,21 @@
+"""
+Insight from https://simpleisbetterthancomplex.com/ to Implement Multiple User Types
+"""
+
+from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.urls import reverse
-from django.contrib.auth.models import User
+
+
+class User(AbstractBaseUser):
+    """
+    Extended the User model for the two users, driver and shipper
+    """
+    email = models.EmailField(max_length=100, unique=True)
+
+    USERNAME_FIELD = 'email'
+    is_driver = models.BooleanField(default=False)
+    is_shipper = models.BooleanField(default=False)
 
 
 class Driver(models.Model):
@@ -33,7 +46,7 @@ class Shipper(models.Model):
     """
     The model for the one who wants to send shipments/load
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name="shipper")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     owner_name = models.CharField(max_length=50, default="owner name")
     company_name = models.CharField(max_length=50, default="company name")
     phone_number = models.CharField(max_length=20, unique=True)

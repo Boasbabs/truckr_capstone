@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
@@ -19,13 +20,6 @@ def index(request):
 class SignUpView(generic.TemplateView):
     template_name = "frontend/signup.html"
 
-    # if request.method == 'POST':
-    #     form = DriverSignUpForm(request.POST)
-    #     if form.is_valid():
-    #         pass  # does nothing, just trigger the validation
-    # else:
-    #     form = DriverSignUpForm()
-
 
 class DriverSignUpView(generic.CreateView):
     """
@@ -35,12 +29,16 @@ class DriverSignUpView(generic.CreateView):
     form_class = DriverSignUpForm
     template_name = "frontend/driver_signup_form.html"
 
+    def get(self, *args, **kwargs):
+        settings.signup_form = self.form_class
+        return redirect('/accounts/signup')
+
     def get_context_data(self, **kwargs):
         kwargs["user_type"] = "driver"
         return super().get_context_data(**kwargs)
 
-    def form_valid(self, form):
-        user = form.save()
+    def form_valid(self, form, request):
+        user = form.save(request)
         login(self.request, user)
         return redirect('frontend:index')
 

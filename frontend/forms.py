@@ -24,8 +24,8 @@ class DriverSignUpForm(UserCreationForm):
         ]
 
     @transaction.atomic
-    def save(self):
-        user = super().save(commit=False)
+    def save(self, request):
+        user = super(DriverSignUpForm, self).save(request)
         user.is_driver = True
         user.save()
         return Driver.objects.create(user=user,
@@ -67,8 +67,7 @@ class ShipperSignUpForm(UserCreationForm):
         if commit:
             user.save()
         return Shipper.objects.create(user=user,
-
-                                     owner_name=self.cleaned_data.get('owner_name'),
-                                     company_name=self.cleaned_data.get('company_name'),
-                                     phone_number=self.cleaned_data.get('phone_number'),
-                                     )
+                                      owner_name=self.cleaned_data.get('owner_name'),
+                                      company_name=self.cleaned_data.get('company_name'),
+                                      phone_number=self.cleaned_data.get('phone_number'),
+                                      )
