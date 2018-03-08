@@ -1,13 +1,18 @@
 from django.shortcuts import render
+from django.views import generic
 
 
-def index(request):
+def home(request):
     return render(request, "shipper/index.html", context={})
 
 
-def login(request):
-    return render(request, "shipper/login.html", context={})
+class CreateOrderView(generic.TemplateView):
+    template_name = "shipper/create_order.html"
 
 
-def signup(request):
-    return render(request, "shipper/signup.html", context={})
+class OrderDetailView(generic.TemplateView):
+    template_name = "shipper/orderdetail.html"
+
+
+class OrderListView(generic.TemplateView):
+    template_name = "shipper/orderlist.html"

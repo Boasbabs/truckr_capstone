@@ -1,0 +1,85 @@
+{% extends 'shipper/base.html' %}
+
+{% block content %}
+<h2 class="ui header">Order History</h2>
+<div class="ui hidden divider"></div>
+<div class="ui segments">
+    <div class="ui segment">
+        <h5 class="ui header">
+            Datatable
+        </h5>
+    </div>
+    <div class="ui segment">
+
+        <table class="ui striped table">
+            <thead>
+            <tr>
+                <th>Pickup Location</th>
+                <th>Destination</th>
+                <th>Material</th>
+                <th>Pickup Date</th>
+                <th>Match</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Tema</td>
+                <td>Kumasi</td>
+                <td>Steel</td>
+                <td>September 14, 2013</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Tema</td>
+                <td>Accra</td>
+                <td>Steel</td>
+                <td>January 11, 2014</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Tema</td>
+                <td>Accra</td>
+                <td>Steel</td>
+                <td>May 11, 2014</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Tema</td>
+                <td>Volta Region</td>
+                <td>Steel</td>
+                <td>September 14, 2013</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Accra</td>
+                <td>Kumasi</td>
+                <td>Steel</td>
+                <td>September 14, 2013</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Tema</td>
+                <td>Volta Region</td>
+                <td>Steel</td>
+                <td>January 11, 2014</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Tema</td>
+                <td>Volta Region</td>
+                <td>Steel</td>
+                <td>September 14, 2013</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Accra</td>
+                <td>Kumasi</td>
+                <td>Steel</td>
+                <td>September 14, 2013</td>
+                <td>No</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

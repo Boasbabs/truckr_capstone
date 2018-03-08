@@ -1,0 +1,111 @@
+{% extends 'shipper/base.html' %}
+
+{% block content %}
+    <h2 class="ui header">Order Details</h2>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui basic segment">
+        <div class="ui text container">
+            <h3 class="ui dividing green header">
+                Your Latest Order
+            </h3>
+            <div class="ui grid">
+                <div class="four wide column">
+                    <h4 class="ui grey header">
+                        <i class="tag icon"></i>
+                        <div class="content">
+                            Order Number
+                            <div class="sub header">12345</div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="four wide column"></div>
+                <div class="four wide column">
+                    <h4 class="ui grey header">
+                        <i class="calendar alternate outline icon"></i>
+                        <div class="content">
+                            Order Date
+                            <div class="sub header">2018 Mar 9th</div>
+                        </div>
+                    </h4>
+                </div>
+            </div>
+            <div class="ui hidden divider"></div>
+            <div class="ui grid">
+                <div class="six wide column">
+                    <h4 class="ui header">Pickup Location</h4>
+
+                    <div class="ui list">
+                        <div class="item">Indomie Ltd</div>
+                        <div class="item">25 East Legon</div>
+                        <div class="item">Accra</div>
+                        <div class="item">Ghana</div>
+                    </div>
+
+                </div>
+                <div class="two wide column"> &nbsp; </div>
+                <div class="six wide column">
+                    <h4 class="ui header">Destination</h4>
+                    <div class="ui list">
+                        <div class="item">Indomie Ltd</div>
+                        <div class="item">25 North Kuma Legon</div>
+                        <div class="item">Tema</div>
+                        <div class="item">Ghana</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui hidden section  divider"></div>
+            <table class="ui very basic table">
+                <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Weight</th>
+                    <th>Pickup Date</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Raw Steel</td>
+                    <td>2 Tonnes</td>
+                    <td>2018 March 9</td>
+                    <td class="">In Progress</td>
+                </tr>
+{#                <tr>#}
+{#                    <td></td>#}
+{#                    <td></td>#}
+{#                    <td>#}
+{#                        <div class="ui list">#}
+{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+{#                        </div>#}
+{#                    </td>#}
+{#                    <td>#}
+{#                        <div class="ui list">#}
+{#                            <div class="item">XXXXXXX</div>#}
+{#                            <div class="item">XXXXXXX</div>#}
+{#                            <div class="item">XXXXXXX</div>#}
+{#                            <div class="item">XXXXXXX</div>#}
+{#                        </div>#}
+{#                    </td>#}
+{#                </tr>#}
+{##}
+{#                </tbody>#}
+{#                <tfoot>#}
+{#                    <tr>#}
+{#                        <th>xxxxx</th>#}
+{#                        <th></th>#}
+{#                        <th></th>#}
+{#                        <th></th>#}
+{#                    </tr>#}
+{#                </tfoot>#}
+            </table>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

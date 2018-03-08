@@ -1,0 +1,8 @@
+#site-container {
+  margin: 1em 2em !important;
+  width: auto !important;
+  max-width: 980px !important;
+}
+#site-siderbar {
+  padding-top: 1em;
+}
