@@ -7,8 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Truckr Logistics - Shippers Home</title>
-
-    <link href="{% static 'css/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
     {% block stylesheets %}
         <link href="{% static 'css/shipper/base.css' %}" rel="stylesheet" type="text/css" />
     {% endblock %}
@@ -37,7 +36,7 @@
         </h4>
     </div>
     <a class="item" href="{% url 'shipper:order_detail' %}">
-        Last Order
+        Current Order
     </a>
     <a class="item">
         Track Order
@@ -46,7 +45,7 @@
         Orders History
     </a>
     <a class="item">
-        Shippment
+        Invoice History
     </a>
     <a class="item">
         Success Transaction
@@ -141,6 +140,8 @@
 
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/semantic.min.js' %}"></script>
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>    <link href="{% static 'css/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+
 {#<script src="{% static 'js/index.js' %}"></script>#}
 {% block scripts %}
     <script>
@@ -150,6 +151,19 @@
 
         // to invoke all dropdowns
         $('.ui.dropdown').dropdown();
+        $('#cal-date').calendar({
+            type: 'date',
+            monthFirst: false,
+            formatter: {
+                date: function (date, settings) {
+                    if (!date) return '';
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    return month + '/' + day + '/' + year;
+                }
+            }
+        });
     </script>
 {% endblock %}
 </body>

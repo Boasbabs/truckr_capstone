@@ -2,123 +2,51 @@
 
 {% block content %}
     <div class="ui segment">
-        <form class="ui form">
-            <h3 class="ui dividing blue header">Order Information</h3>
-            <div class="field">
-                <label>Name</label>
-                <div class="two fields">
-                    <div class="field">
-                        <input type="text" name="shipping[first-name]" placeholder="First Name">
-                    </div>
-                    <div class="field">
+        <h3 class="ui dividing blue header">Order Information</h3>
+            {% load semanticui %}
+        <form class="ui form" action="" method="post">
+            {% csrf_token %}
 
-                        <input type="text" name="shipping[last-name]" placeholder="Last Name">
-                    </div>
-                </div>
-            </div>
             <div class="field">
                 <div class="fields">
                     <div class="eight wide field">
-                        <label>Pickup Address</label>
-                        <input type="text" name="" placeholder="Pickup Address">
+                        {% render_field form.cargo_material %}
                     </div>
                     <div class="eight wide field">
-                        <label for="">Destination Address</label>
-                        <input type="text" name="" placeholder="Destination">
+                        {% render_field form.cargo_weight %}
                     </div>
+                    <div class="eight wide field">
+                        <div class="ui calendar" id="cal-date">
+                        {% render_field form.pickup_date %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+
+                    {% render_field form.pickup_address %}
+                </div>
+                <div class="field">
+                {% render_field form.pickup_location %}
+
                 </div>
             </div>
             <div class="two fields">
                 <div class="field">
-                    <label>State</label>
-                    <select class="ui fluid dropdown">
-                        <option value="">State</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </select>
+                    {% render_field form.destination_address %}
                 </div>
                 <div class="field">
-                    <label>Material</label>
-                    <div class="ui fluid search selection dropdown">
-                        <input type="hidden" name="material">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Select Material</div>
-                        <div class="menu">
-                            <div class="item">Steel</div>
-                            <div class="item">Rice</div>
-                            <div class="item">Sugar</div>
-                            <div class="item">Fertilizers</div>
-                            <div class="item">Iron</div>
-                        </div>
-                    </div>
+                    {% render_field form.destination_location %}
                 </div>
             </div>
-            <h4 class="ui dividing header">Billing Information</h4>
             <div class="field">
-                <label>Card Type</label>
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="card[type]">
-                    <div class="default text">Type</div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <div class="item" data-value="visa">
-                            <i class="visa icon"></i>
-                            Visa
-                        </div>
-                        <div class="item" data-value="amex">
-                            <i class="amex icon"></i>
-                            American Express
-                        </div>
-                        <div class="item" data-value="discover">
-                            <i class="discover icon"></i>
-                            Discover
-                        </div>
-                    </div>
-                </div>
+
+                {% render_field form.order_notes %}
             </div>
-            <div class="fields">
-                <div class="seven wide field">
-                    <label>Card Number</label>
-                    <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
-                </div>
-                <div class="three wide field">
-                    <label>CVC</label>
-                    <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
-                </div>
-                <div class="six wide field">
-                    <label>Expiration</label>
-                    <div class="two fields">
-                        <div class="field">
-                            <select class="ui fluid search dropdown" name="card[expire-month]">
-                                <option value="">Month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
-                        </div>
-                    </div>
-                    <div class="ui huge green right floated button">Submit Order</div>
-                </div>
-            </div>
-
-
-
+            <input class="ui green medium button" type="submit" value="Submit Order">
         </form>
     </div>
 {% endblock %}

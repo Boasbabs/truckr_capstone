@@ -71,38 +71,41 @@
                     <td>2018 March 9</td>
                     <td class="">In Progress</td>
                 </tr>
-{#                <tr>#}
-{#                    <td></td>#}
-{#                    <td></td>#}
-{#                    <td>#}
-{#                        <div class="ui list">#}
-{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-{#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-{#                        </div>#}
-{#                    </td>#}
-{#                    <td>#}
-{#                        <div class="ui list">#}
-{#                            <div class="item">XXXXXXX</div>#}
-{#                            <div class="item">XXXXXXX</div>#}
-{#                            <div class="item">XXXXXXX</div>#}
-{#                            <div class="item">XXXXXXX</div>#}
-{#                        </div>#}
-{#                    </td>#}
-{#                </tr>#}
-{##}
-{#                </tbody>#}
-{#                <tfoot>#}
-{#                    <tr>#}
-{#                        <th>xxxxx</th>#}
-{#                        <th></th>#}
-{#                        <th></th>#}
-{#                        <th></th>#}
-{#                    </tr>#}
-{#                </tfoot>#}
+                {#                <tr>#}
+                {#                    <td></td>#}
+                {#                    <td></td>#}
+                {#                    <td>#}
+                {#                        <div class="ui list">#}
+                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
+                {#                        </div>#}
+                {#                    </td>#}
+                {#                    <td>#}
+                {#                        <div class="ui list">#}
+                {#                            <div class="item">XXXXXXX</div>#}
+                {#                            <div class="item">XXXXXXX</div>#}
+                {#                            <div class="item">XXXXXXX</div>#}
+                {#                            <div class="item">XXXXXXX</div>#}
+                {#                        </div>#}
+                {#                    </td>#}
+                {#                </tr>#}
+                {##}
+                {#                </tbody>#}
+                {#                <tfoot>#}
+                {#                    <tr>#}
+                {#                        <th>xxxxx</th>#}
+                {#                        <th></th>#}
+                {#                        <th></th>#}
+                {#                        <th></th>#}
+                {#                    </tr>#}
+                {#                </tfoot>#}
             </table>
+            {% for record in latest %}
+                {{record.c}}, {{record.e}},
 
+            {% endfor %}
 
         </div>
 
