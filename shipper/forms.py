@@ -36,21 +36,6 @@ class CreateShipmentForm(forms.ModelForm):
         # fields = "__all__"
         exclude = ('shipper',)
 
-    # def save(self, request):
-    #     shipment = super(CreateShipmentForm, self).save(request)
-    #     shipment.save()
-    #
-    #     return Shipment.objects.create(
-    #                                    cargo_material = self.cleaned_data.get('cargo_material'),
-    #                                    pickup_date =self.cleaned_data.get('pickup_date'),
-    #                                    cargo_weight =self.cleaned_data.get('cargo_weight'),
-    #                                    pickup_address =self.cleaned_data.get('pickup_address'),
-    #                                    pickup_location =self.cleaned_data.get('pickup_location'),
-    #                                    destination_address =self.cleaned_data.get('destination_address'),
-    #                                    destination_location =self.cleaned_data.get('destination_location'),
-    #                                    order_notes =self.cleaned_data.get(' order_notes'),
-    #                                    )
-
     def clean(self):
         cleaned_data = super(CreateShipmentForm, self).clean()
         cargo_material = cleaned_data.get('cargo_material')

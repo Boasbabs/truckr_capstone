@@ -8,72 +8,46 @@
         <table class="ui striped table">
             <thead>
             <tr>
+                <th>No.</th>
                 <th>Pickup Location</th>
                 <th>Destination</th>
                 <th>Material</th>
                 <th>Pickup Date</th>
                 <th>Match</th>
+                <th>Invoice Status</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Tema</td>
-                <td>Kumasi</td>
-                <td>Steel</td>
-                <td>September 14, 2013</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Tema</td>
-                <td>Accra</td>
-                <td>Steel</td>
-                <td>January 11, 2014</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Tema</td>
-                <td>Accra</td>
-                <td>Steel</td>
-                <td>May 11, 2014</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Tema</td>
-                <td>Volta Region</td>
-                <td>Steel</td>
-                <td>September 14, 2013</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Accra</td>
-                <td>Kumasi</td>
-                <td>Steel</td>
-                <td>September 14, 2013</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Tema</td>
-                <td>Volta Region</td>
-                <td>Steel</td>
-                <td>January 11, 2014</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Tema</td>
-                <td>Volta Region</td>
-                <td>Steel</td>
-                <td>September 14, 2013</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Accra</td>
-                <td>Kumasi</td>
-                <td>Steel</td>
-                <td>September 14, 2013</td>
-                <td>No</td>
-            </tr>
+            {% for shipment in shipment_list %}
+                <tr>
+                    <td>{{ shipment.id }}</td>
+                    <td><a href="{% url 'shipper:order_detail' shipment.id %}">{{ shipment.pickup_location }}</a></td>
+                    <td>{{ shipment.destination_location }}</td>
+                    <td>{{ shipment.cargo_material }}</td>
+                    <td>{{ shipment.pickup_date }}</td>
+                    <td>No</td>
+                    <td>2000 ghs</td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
+        {% block pagination %}
+            {% if is_paginated %}
+                <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+                </div>
+            {% endif %}
+        {% endblock %}
     </div>
 
 {% endblock %}

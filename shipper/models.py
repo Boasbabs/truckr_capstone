@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 
 from frontend.models import Shipper, User
@@ -34,7 +34,7 @@ class Shipment(models.Model):
     order_notes = models.TextField()
 
     class Meta:
-        ordering = ["order_date"]
+        ordering = ["pickup_date"]
         verbose_name = 'shipment'
         verbose_name_plural = 'shipments'
 

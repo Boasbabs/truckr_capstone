@@ -6,7 +6,7 @@
 
     <div class="ui basic segment">
         <div class="ui text container">
-            <h3 class="ui dividing green header">
+            <h3 class="ui dividing header">
                 Your Latest Order
             </h3>
             <div class="ui grid">
@@ -15,19 +15,37 @@
                         <i class="tag icon"></i>
                         <div class="content">
                             Order Number
-                            <div class="sub header">12345</div>
+                            <div class="sub header">{{ shipment.shipper_id }}</div>
                         </div>
                     </h4>
                 </div>
-                <div class="four wide column"></div>
-                <div class="four wide column">
+
+                <div class="five wide column">
                     <h4 class="ui grey header">
                         <i class="calendar alternate outline icon"></i>
                         <div class="content">
                             Order Date
-                            <div class="sub header">2018 Mar 9th</div>
+                            <div class="sub header">{{ shipment.order_date }}</div>
                         </div>
                     </h4>
+                </div>
+                <div class="seven wide column">
+                    <h2 class="ui header">
+{#                        <i class="settings icon"></i>#}
+                        <div class="content">
+                            Match Found
+                            <div class="sub header">30% Saved</div>
+                        </div>
+                    </h2>
+
+                    <div class="ui big green label">
+                        1,400 GHS
+                    </div>
+                    <div class="ui red label">
+                        600 GHS saved
+                    </div>
+                    <div class="ui hidden divider"></div>
+                    <div id="" class="ui fluid small teal button">Generate Invoice</div>
                 </div>
             </div>
             <div class="ui hidden divider"></div>
@@ -36,9 +54,9 @@
                     <h4 class="ui header">Pickup Location</h4>
 
                     <div class="ui list">
-                        <div class="item">Indomie Ltd</div>
-                        <div class="item">25 East Legon</div>
-                        <div class="item">Accra</div>
+{#                        <div class="item">Indomie Ltd</div>#}
+                        <div class="item">{{ shipment.pickup_address }}</div>
+                        <div class="item">{{ shipment.pickup_location }}</div>
                         <div class="item">Ghana</div>
                     </div>
 
@@ -47,9 +65,9 @@
                 <div class="six wide column">
                     <h4 class="ui header">Destination</h4>
                     <div class="ui list">
-                        <div class="item">Indomie Ltd</div>
-                        <div class="item">25 North Kuma Legon</div>
-                        <div class="item">Tema</div>
+{#                        <div class="item">Indomie Ltd</div>#}
+                        <div class="item">{{shipment.destination_address}}</div>
+                        <div class="item">{{shipment.destination_location}}</div>
                         <div class="item">Ghana</div>
                     </div>
                 </div>
@@ -66,49 +84,34 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Raw Steel</td>
-                    <td>2 Tonnes</td>
-                    <td>2018 March 9</td>
+                    <td>{{ shipment.cargo_material }}</td>
+                    <td>{{ shipment.cargo_weight }}</td>
+                    <td>{{ shipment.pickup_date }}</td>
                     <td class="">In Progress</td>
                 </tr>
-                {#                <tr>#}
-                {#                    <td></td>#}
-                {#                    <td></td>#}
-                {#                    <td>#}
-                {#                        <div class="ui list">#}
-                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-                {#                            <div class="item"><h5 class="ui header">xxxxx</h5></div>#}
-                {#                        </div>#}
-                {#                    </td>#}
-                {#                    <td>#}
-                {#                        <div class="ui list">#}
-                {#                            <div class="item">XXXXXXX</div>#}
-                {#                            <div class="item">XXXXXXX</div>#}
-                {#                            <div class="item">XXXXXXX</div>#}
-                {#                            <div class="item">XXXXXXX</div>#}
-                {#                        </div>#}
-                {#                    </td>#}
-                {#                </tr>#}
-                {##}
-                {#                </tbody>#}
-                {#                <tfoot>#}
-                {#                    <tr>#}
-                {#                        <th>xxxxx</th>#}
-                {#                        <th></th>#}
-                {#                        <th></th>#}
-                {#                        <th></th>#}
-                {#                    </tr>#}
-                {#                </tfoot>#}
-            </table>
-            {% for record in latest %}
-                {{record.c}}, {{record.e}},
 
-            {% endfor %}
+            </table>
 
         </div>
 
+    </div>
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Modal Title
+        </div>
+        <div class="image content">
+            <div class="image">
+                An image can appear on left or an icon
+            </div>
+            <div class="description">
+                A description can appear on the right
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui button">Cancel</div>
+            <div class="ui button">OK</div>
+        </div>
     </div>
 
 {% endblock %}

@@ -31,7 +31,6 @@ class CreateShipmentView(CreateView):
                 shipment.save()
                 form.clean()
 
-                # return super(CreateShipmentView, self).form_valid(form)
                 return redirect("shipper:order_detail")
             else:
                 return render(request, 'shipper/create_order.html',
@@ -41,7 +40,7 @@ class CreateShipmentView(CreateView):
         return render_to_response('shipper/create_order.html', {'form': form},)
 
 
-class ShipmentDetailView(generic.TemplateView):
+class ShipmentDetailView(generic.DetailView):
     model = Shipment
     template_name = "shipper/orderdetail.html"
 
@@ -49,18 +48,20 @@ class ShipmentDetailView(generic.TemplateView):
 # class ShipmentDetailView(generic.DetailView):
 #     model = Shipment
 #     template_name = "shipper/orderdetail.html"
-#
-#     latest = Shipment.objects.all().latest("order_date")
-#
-#     def get_object(self, *args, **kwargs):
-#         shipment = get_object_or_404(Shipment, pk=self.kwargs['pk'])
-#         return shipment
-#
-#     def get_queryset(self):
-#         """Filter pages by a book"""
-#         return self.Shipment.objects.all().latest("order_date")
+
+    # def get_object(self, *args, **kwargs):
+    #     shipment = get_object_or_404(Shipment, pk=self.kwargs['pk'])
+    #     return shipment
+
+    # def get_queryset(self):
+    #     """Filter pages by a book"""
+    #     latest = Shipment.objects.all().latest("order_date")
+    #     print(latest)
+    #     return latest
 
 
 class ShipmentListView(generic.ListView):
     model = Shipment
     template_name = "shipper/orderlist.html"
+    paginate_by = 5
+

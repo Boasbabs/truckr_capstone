@@ -35,23 +35,23 @@
             Sub Menu
         </h4>
     </div>
-    <a class="item" href="{% url 'shipper:order_detail' %}">
-        Current Order
-    </a>
-    <a class="item">
-        Track Order
-    </a>
+{#    <a class="item" href="">#}
+{#        Current Order#}
+{#    </a>#}
     <a class="item" href="{% url 'shipper:order_list' %}">
-        Orders History
+        All your Orders
     </a>
     <a class="item">
         Invoice History
     </a>
-    <a class="item">
-        Success Transaction
-    </a>
+{#    <a class="item">#}
+{#        Success Transaction#}
+{#    </a>#}
     <a class="item">
         History
+    </a>
+    <a class="item">
+        Track Order
     </a>
     <div class="ui divider"></div>
     <div class="item">
@@ -164,6 +164,7 @@
                 }
             }
         });
+        $('#invoice-btn').modal('attach events', '.button', 'show');
     </script>
 {% endblock %}
 </body>
