@@ -39,7 +39,7 @@
 {#        Current Order#}
 {#    </a>#}
     <a class="item" href="{% url 'shipper:order_list' %}">
-        All your Orders
+        All your Orders <i class="ui bars icon"></i>
     </a>
     <a class="item">
         Invoice History
@@ -48,7 +48,7 @@
 {#        Success Transaction#}
 {#    </a>#}
     <a class="item">
-        History
+        <i class="ui upload icon"></i> Upload Schedule
     </a>
     <a class="item">
         Track Order
@@ -164,7 +164,7 @@
                 }
             }
         });
-        $('#invoice-btn').modal('attach events', '.button', 'show');
+        $('#invoice').modal('attach events', '.invoice.button', 'show');
     </script>
 {% endblock %}
 </body>

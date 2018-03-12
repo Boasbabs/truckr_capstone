@@ -15,7 +15,7 @@
                         <i class="tag icon"></i>
                         <div class="content">
                             Order Number
-                            <div class="sub header">{{ shipment.shipper_id }}</div>
+                            <div class="sub header">{{ shipment.order_number }}</div>
                         </div>
                     </h4>
                 </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="seven wide column">
                     <h2 class="ui header">
-{#                        <i class="settings icon"></i>#}
+                        {#                        <i class="settings icon"></i>#}
                         <div class="content">
                             Match Found
                             <div class="sub header">30% Saved</div>
@@ -45,7 +45,7 @@
                         600 GHS saved
                     </div>
                     <div class="ui hidden divider"></div>
-                    <div id="" class="ui fluid small teal button">Generate Invoice</div>
+                    <div id="" class="ui fluid small teal invoice button">Confirm Payment</div>
                 </div>
             </div>
             <div class="ui hidden divider"></div>
@@ -54,7 +54,7 @@
                     <h4 class="ui header">Pickup Location</h4>
 
                     <div class="ui list">
-{#                        <div class="item">Indomie Ltd</div>#}
+                        {#                        <div class="item">Indomie Ltd</div>#}
                         <div class="item">{{ shipment.pickup_address }}</div>
                         <div class="item">{{ shipment.pickup_location }}</div>
                         <div class="item">Ghana</div>
@@ -65,7 +65,7 @@
                 <div class="six wide column">
                     <h4 class="ui header">Destination</h4>
                     <div class="ui list">
-{#                        <div class="item">Indomie Ltd</div>#}
+                        {#                        <div class="item">Indomie Ltd</div>#}
                         <div class="item">{{shipment.destination_address}}</div>
                         <div class="item">{{shipment.destination_location}}</div>
                         <div class="item">Ghana</div>
@@ -95,23 +95,142 @@
         </div>
 
     </div>
-    <div class="ui modal">
+    <div id="invoice" class="ui small modal">
         <i class="close icon"></i>
+
+
         <div class="header">
-            Modal Title
-        </div>
-        <div class="image content">
-            <div class="image">
-                An image can appear on left or an icon
+            <div class="ui grid">
+                <div class="six wide column">
+                    <div class="ui medium header">
+                        <div class="content">
+                            Invoice
+                            <div class="sub header">NO: 554775/R1 | Date: 03/12/2018</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column"></div>
+                <div class="six wide column">
+                    <div class="ui medium header">
+                        <div class="content">
+                            Truckr Limited.
+                            <div class="sub header">Payment Department</div>
+                            <div class="sub header">East Legon, Greater Accra</div>
+                            <div class="sub header"><a href="mailto:payment@truckr.com">payment@truckr.com</a></div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="description">
-                A description can appear on the right
+        </div>
+
+        <div class="content">
+            <div class="ui grid">
+                <div class="row">
+                    <div class="eight wide column">
+                        <div class="ui  segment">
+                            <div class="ui top attached medium teal label">Company Details</div>
+                            <dl class="dl-horizontal">
+                                <dt>Name</dt>
+                                <dd ><strong>Noodles Corporation</strong></dd>
+                                <dt>Industry</dt>
+                                <dd >Food Department</dd>
+                                <dt>Address</dt>
+                                <dd>Field 3, Moon</dd>
+                                <dt>Phone</dt>
+                                <dd>123.4456.4567</dd>
+                                <dt>Email</dt>
+                                <dd>mainl@acme.com</dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="eight wide column">
+                        <div class="ui segment">
+                            <div class="ui top attached medium label">Company Details</div>
+                            <dl class="dl-horizontal">
+                                <dt>Name</dt>
+                                <dd><strong>UAC Corporation</strong></dd>
+                                <dt>Industry</dt>
+                                <dd>Food Department</dd>
+                                <dt>Address</dt>
+                                <dd>One  Way Redmond, Ghana</dd>
+                                <dt>Phone</dt>
+                                <dd>(425) 882-8080</dd>
+                                <dt>Email</dt>
+                                <dd>contact@uaccorporation.com</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="ui celled structured compact table">
+                        <thead>
+                        <tr>
+                            <th colspan="4">Services</th>
+                        </tr>
+                        <tr>
+                            <th class="six wide">Details</th>
+                            <th>Unit <i><small>GHS</small></i></th>
+                            <th>Sum Cost  <i><small>GHS</small></i></th>
+                            <th>Total  <i><small>GHS</small></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="">
+                                Cargo Shipment from Accra to Kumasi
+                            </td>
+                            <td>2,000</td>
+                            <td>-600</td>
+                            <td>1,400</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="ui single line teal table">
+                        <thead>
+                        <tr>
+                            <th>Sub Total <i><small>GHS</small></i></th>
+                            <th>Discount <i><small>GHS</small></i></th>
+                            <th>Total <i><small>GHS</small></i></th>
+                            <th>Final <i><small>GHS</small></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>2000</td>
+                            <td>- 600</td>
+                            <td>1,400</td>
+                            <td>1,400</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="eight wide column">
+                        <div class="ui  segment">
+                            <div class="ui top attached medium label">Comments Details</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit repudiandae numquam sit facere blanditiis, quasi distinctio ipsam? Libero odit ex expedita, facere sunt, possimus consectetur dolore, nobis iure amet vero.</p>
+                        </div>
+                    </div>
+                    <div class="eight wide column">
+                        <div class="ui segment">
+                            <div class="ui top attached medium label">Payment Methods</div>
+                            <p>For your convenience, you may deposite the final ammount at one of our banks</p>
+                            <ul class="ui list">
+                                <li class="item">Alpha Bank - <span class="mono">MO123456789456123</span></li>
+                                <li class="item">Beta Bank - <span class="mono">MO123456789456123</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="actions">
-            <div class="ui button">Cancel</div>
-            <div class="ui button">OK</div>
+            <div class="ui cancel button">Cancel</div>
+            <div class="ui approve green button">Send Invoice</div>
         </div>
+
     </div>
 
 {% endblock %}

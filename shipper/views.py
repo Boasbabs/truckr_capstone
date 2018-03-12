@@ -31,8 +31,9 @@ class CreateShipmentView(CreateView):
                 shipment.save()
                 form.clean()
 
-                return redirect("shipper:order_detail")
+                return redirect("shipper:order_list")
             else:
+                print(form.errors)
                 return render(request, 'shipper/create_order.html',
                               {'form': form})
         else:

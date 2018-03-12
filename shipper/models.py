@@ -21,8 +21,8 @@ class Shipment(models.Model):
         ("teshie", 'TESHIE'),
         ("sunyani", 'SUNYANI'),
     )
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for shipment order created")
     shipper = models.ForeignKey(User, on_delete=models.CASCADE,)
+    order_number = models.UUIDField(default=uuid.uuid4, help_text="Unique ID for shipment order created")
     order_date = models.DateTimeField(auto_now=True)
     cargo_material = models.CharField(max_length=225)
     pickup_date = models.DateField(null=True, blank=True)
@@ -32,6 +32,7 @@ class Shipment(models.Model):
     destination_address = models.CharField(max_length=225)
     destination_location = models.CharField(max_length=100, choices=LOCATION, default="tema", null=True, blank=True, help_text='Delivery Location')
     order_notes = models.TextField()
+    matched_order_to = models.CharField(default=None, null=True, blank=True, max_length=55)
 
     class Meta:
         ordering = ["pickup_date"]

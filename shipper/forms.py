@@ -34,7 +34,7 @@ class CreateShipmentForm(forms.ModelForm):
     class Meta:
         model = Shipment
         # fields = "__all__"
-        exclude = ('shipper',)
+        exclude = ('shipper', 'order_number',)
 
     def clean(self):
         cleaned_data = super(CreateShipmentForm, self).clean()
