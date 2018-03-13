@@ -13,8 +13,8 @@
                 <th>Destination</th>
                 <th>Material</th>
                 <th>Pickup Date</th>
-                <th>Match</th>
-                <th>Invoice Status</th>
+                <th>Matched Order</th>
+{#                <th>Invoice Status</th>#}
             </tr>
             </thead>
             <tbody>
@@ -25,8 +25,15 @@
                     <td>{{ shipment.destination_location }}</td>
                     <td>{{ shipment.cargo_material }}</td>
                     <td>{{ shipment.pickup_date }}</td>
-                    <td>No</td>
-                    <td>2000 ghs</td>
+                    {% if shipment.matched_order_to %}
+                    <td>
+                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="ui green label">Match found</a>
+                    </td>
+                    {% else %}
+                    <td>
+                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="ui red label">Match pending</a>
+                    </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

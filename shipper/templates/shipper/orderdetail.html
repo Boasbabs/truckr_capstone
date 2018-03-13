@@ -30,22 +30,33 @@
                     </h4>
                 </div>
                 <div class="seven wide column">
-                    <h2 class="ui header">
-                        {#                        <i class="settings icon"></i>#}
-                        <div class="content">
-                            Match Found
-                            <div class="sub header">30% Saved</div>
-                        </div>
-                    </h2>
+                    {% if shipment.matched_order_to %}
+                        <h2 class="ui header">
+                            <div class="content">
+                                Match Found
+                                <div class="sub header">30% Saved</div>
+                            </div>
+                        </h2>
 
-                    <div class="ui big green label">
-                        1,400 GHS
-                    </div>
-                    <div class="ui red label">
-                        600 GHS saved
-                    </div>
-                    <div class="ui hidden divider"></div>
-                    <div id="" class="ui fluid small teal invoice button">Confirm Payment</div>
+                        <div class="ui big green label">
+                            1,400 GHS
+                        </div>
+                        <div class="ui red label">
+                            600 GHS saved
+                        </div>
+                        <div class="ui hidden divider"></div>
+                        <div id="" class="ui fluid small teal invoice button">Confirm Payment</div>
+                    {% else %}
+                        <h2 class="ui sub red header">No matched found yet</h2>
+                        <h4 class="ui grey header">
+                            We are searching for your match.
+                            <div class="content">
+                                <small class=""><i>Kindly check back.</i></small>
+                            </div>
+                        </h4>
+
+                    {% endif %}
+
                 </div>
             </div>
             <div class="ui hidden divider"></div>
@@ -77,7 +88,7 @@
                 <thead>
                 <tr>
                     <th>Material</th>
-                    <th>Weight</th>
+                    <th>Weight <small><i>in tonnes</i></small></th>
                     <th>Pickup Date</th>
                     <th>Status</th>
                 </tr>
@@ -87,7 +98,15 @@
                     <td>{{ shipment.cargo_material }}</td>
                     <td>{{ shipment.cargo_weight }}</td>
                     <td>{{ shipment.pickup_date }}</td>
-                    <td class="">In Progress</td>
+                    {% if shipment.matched_order_to %}
+                    <td>
+                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="ui red">Match found</a>
+                    </td>
+                    {% else %}
+                    <td>
+                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="">Match pending</a>
+                    </td>
+                    {% endif %}
                 </tr>
 
             </table>
@@ -97,7 +116,6 @@
     </div>
     <div id="invoice" class="ui small modal">
         <i class="close icon"></i>
-
 
         <div class="header">
             <div class="ui grid">

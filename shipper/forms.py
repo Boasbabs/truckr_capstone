@@ -19,7 +19,7 @@ class CreateShipmentForm(forms.ModelForm):
     # order_date = forms.DateField(widget=forms.widgets.DateInput(format="%m/%d/%Y"))
     cargo_material = forms.CharField(max_length=100)
     pickup_date = forms.DateField(widget=forms.widgets.DateInput(format="%m/%d/%Y"),)
-    cargo_weight = forms.IntegerField(label="Cargo Weight", help_text="Weight in tonnes")
+    cargo_weight = forms.IntegerField(label="Cargo Weight (in tonnes)", help_text="Weight in tonnes")
     pickup_address = forms.CharField(label="Pickup Address", max_length=225)
     pickup_location = forms.ChoiceField(label="Pickup Location", choices=LOCATION, widget=forms.Select())
     destination_address = forms.CharField(label="Destination Address", max_length=225)

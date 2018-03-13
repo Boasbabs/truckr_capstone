@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
+from django.db.models.signals import post_save
 
 from frontend.models import Shipper, User
 # Shipper's Model
@@ -51,11 +52,6 @@ class Shipment(models.Model):
         """
         return 'Shipment Order: {0} ({1})'.format(self.id, self.cargo_material)
 
-    def get_latest(self):
-        # now = timezone.now()
-        latest = Shipment.objects.all().latest("order_date")
-        return latest
-
 
 class Invoice(models.Model):
     """
@@ -74,3 +70,41 @@ class Invoice(models.Model):
         String for representing the Model object
         """
         return 'Invoice: {0} ({1})'.format(self.amount, self.payment_status)
+
+
+# signal gets triggered when shipment order is created.
+def check_matched_order(sender, **kwargs):
+    if kwargs['created']:
+        is_matched_order()
+
+post_save.connect(check_matched_order, sender=Shipment)
+
+
+def is_matched_order():
+    """
+    This is the function that checks for matched order.
+    :return:
+    """
+    latest = Shipment.objects.latest('order_date')
+
+    #for converting string to string
+    #print("".join([p.pickup_location for p in match]))
+
+    #query for match
+    check_for_match = Shipment.objects.all().filter(
+        destination_location=latest.pickup_location
+    ).filter(
+        pickup_location=latest.destination_location
+    )
+    print("--------------Checking match-----------------------")
+    print("".join([p.pickup_location for p in check_for_match]))
+
+    if check_for_match:
+        for p in check_for_match:
+            p.matched_order_to = latest.id
+            latest.matched_order_to = p.id
+            latest.save()
+            p.save()
+
+    return check_for_match
+
