@@ -100,11 +100,11 @@
                     <td>{{ shipment.pickup_date }}</td>
                     {% if shipment.matched_order_to %}
                     <td>
-                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="ui red">Match found</a>
+                        Match found
                     </td>
                     {% else %}
                     <td>
-                        <a href="{% url 'shipper:order_detail' shipment.id %}" class="">Match pending</a>
+                        Match pending
                     </td>
                     {% endif %}
                 </tr>

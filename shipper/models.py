@@ -96,8 +96,6 @@ def is_matched_order():
     ).filter(
         pickup_location=latest.destination_location
     )
-    print("--------------Checking match-----------------------")
-    print("".join([p.pickup_location for p in check_for_match]))
 
     if check_for_match:
         for p in check_for_match:

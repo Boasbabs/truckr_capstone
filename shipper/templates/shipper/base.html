@@ -56,17 +56,17 @@
     <div class="ui divider"></div>
     <div class="item">
         <h4 class="ui grey header">
-            Others
+            Manage Account
         </h4>
     </div>
-    <a class="item">
+    <a class="item" href="/accounts/password/reset">
         <div class="ui teal empty circular label"></div>
-        &nbsp;
+       Reset Password &nbsp;
     </a>
 
-    <a class="item">
+    <a class="item" href="/accounts/email/">
         <div class="ui blue empty circular label"></div>
-        &nbsp;
+        &nbsp;Manage Email
     </a>
 
     <a class="item">
@@ -114,12 +114,12 @@
                     </div>
                 </div>
                 <div class="ui dropdown item">
-                    <i class="ui inverted circular user blue icon"></i> User Name
+                    <i class="ui inverted circular user blue icon"></i> {{ user.get_username }}
                     <div class="menu">
                         <a class="item" href="">Settings</a>
                         <div class="ui divider"></div>
                         <a class="item">Need Help?</a>
-                        <a class="item" href="">Sign Out</a>
+                        <a class="item" href="/accounts/logout/">Sign Out</a>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import FormView, CreateView
@@ -10,11 +11,11 @@ from shipper.models import Shipment, Invoice
 from shipper.forms import CreateShipmentForm
 
 
-def home(request):
-    return render(request, "shipper/create_order.html", context={})
+# def home(request):
+#     return render(request, "shipper/create_order.html", context={})
 
 
-class CreateShipmentView(CreateView):
+class CreateShipmentView(LoginRequiredMixin, CreateView):
     model = Shipment
     form = CreateShipmentForm()
     fields = "__all__"
@@ -41,7 +42,7 @@ class CreateShipmentView(CreateView):
         return render_to_response('shipper/create_order.html', {'form': form},)
 
 
-class ShipmentDetailView(generic.DetailView):
+class ShipmentDetailView(LoginRequiredMixin, generic.DetailView):
     model = Shipment
     template_name = "shipper/orderdetail.html"
 
@@ -61,8 +62,8 @@ class ShipmentDetailView(generic.DetailView):
     #     return latest
 
 
-class ShipmentListView(generic.ListView):
+class ShipmentListView(LoginRequiredMixin, generic.ListView):
     model = Shipment
     template_name = "shipper/orderlist.html"
-    paginate_by = 5
+    paginate_by = 10
 
