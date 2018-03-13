@@ -97,7 +97,7 @@ TEMPLATES = [
         'DIRS': [
             # the line below was commented out to allow allauth templates work.
             # comment to turn on custom allauth templates
-            # 'templates',
+            'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -180,7 +180,7 @@ LOGIN_URL = 'account_login'
 
 LOGOUT_URL = 'logout'
 
-LOGIN_REDIRECT_URL = 'frontend:index'
+LOGIN_REDIRECT_URL = 'shipper:order_list'
 
 LOGOUT_REDIRECT_URL = 'frontend:index'
 

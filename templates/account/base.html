@@ -1,40 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block head_title %}{% endblock %}</title>
+<head>
+    <title>{% block head_title %}Truckr Logistics - The most comfortable way to connect shippers to carriers{% endblock %}</title>
     {% block extra_head %}
+        <link href="{% static 'css/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/frontend/index.css' %}" rel="stylesheet" type="text/css" />
     {% endblock %}
-  </head>
-  <body>
+</head>
+<body id="all-auth-body">
+<div class="ui text container">
+    <h2 class="ui icon center aligned header">
+        <i class="truck inverted black icon"></i>
+        <div class="content">
+            Truckr
+            <div class="sub header">Manage your account </div>
+        </div>
+    </h2>
+    <div class="ui divider"></div>
     {% block body %}
+        <div class="ui very padded raised segment">
+            {% load semanticui %}
+            {% if messages %}
+                <div class="ui message">
+                    <div class="header">Messages:</div>
+                    <ul class="list">
+                        {% for message in messages %}
+                            <li >{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
 
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-	{% for message in messages %}
-	<li>{{message}}</li>
-	{% endfor %}
-      </ul>
-    </div>
-    {% endif %}
 
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-	{% if user.is_authenticated %}
-	<li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-	<li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-	{% else %}
-	<li><a href="{% url 'account_login' %}">Sign In</a></li>
-	<li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-	{% endif %}
-      </ul>
-    </div>
-    {% block content %}
-    {% endblock %}
+            {% block content %}
+            {% endblock %}
+        </div>
     {% endblock %}
     {% block extra_body %}
+        <div class="ui secondary large menu">
+            {% if user.is_authenticated %}
+                <a class="right link item" href="{% url 'account_email' %}">Change E-mail</a></a>
+                <a class="link item" href="{% url 'account_logout' %}">Sign Out</a>
+            {% else %}
+                <a class="right link item" href="{% url 'account_login' %}">Sign In</a>
+                <a class="item" href="{% url 'account_signup' %}">Sign Up</a>
+            {% endif %}
+
+        </div>
     {% endblock %}
-  </body>
+</div>
+</body>
 </html>
