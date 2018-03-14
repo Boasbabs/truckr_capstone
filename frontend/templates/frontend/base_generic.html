@@ -16,9 +16,9 @@
 <body>
 
 <!-- Following Menu -->
-<div class="ui large top fixed hidden borderless menu">
+<div class="ui large top fixed hidden borderless inverted menu">
     <div class="ui container">
-        <div class="item"><div class="ui sub blue header">Truckr</div></div>
+        <div class="item"><img src="/static/img/truckr-white-str-logo.png" class="ui tiny image" style=""></div>
         <div class="right menu">
             <a class="active item" href="{% url 'frontend:index' %}">Home</a>
             <a class="item" href="">About</a>
@@ -26,11 +26,11 @@
             {% if user.is_authenticated %}
             <div class="item">
 
-                <a class="ui button" href="{% url 'shipper:order_create' %}">Create Order</a></a>
+                <a class="ui blue button" href="{% url 'shipper:order_create' %}">Create Order</a></a>
             </div>
             <div class="item">
 
-                <a class="ui inverted button" href="{% url 'account_logout' %}">Sign Out</a>
+                <a class="ui inverted red button" href="{% url 'account_logout' %}">Sign Out</a>
             </div>
             {% else %}
             <div class="item">
@@ -51,7 +51,7 @@
     <a class="item" href="">About</a>
     <a class="item" href="">How It Works</a>
     {% if user.is_authenticated %}
-        <a class=" item" href="{% url 'shipper:home' %}">Home</a></a>
+        <a class=" item" href="{% url 'shipper:order_list' %}">Home</a></a>
         <a class=" item" href="{% url 'account_logout' %}">Sign Out</a>
     {% else %}
     <a class="item" href="{% url 'account_login' %}">Login</a>
@@ -69,13 +69,16 @@
                     <a class="toc item">
                         <i class="sidebar icon"></i>
                     </a>
-                    <div class="item"><div class="ui sub logo header">Truckr</div></div>
+{#                    <div class="item"><div class="ui sub logo header">Truckr</div></div>#}
+                    <div class="item">
+                        <img src="/static/img/truckr-white-str-logo.png" class="ui small image" style="">
+                    </div>
                     <a class="active right item" href="">Home</a>
                     <a class="item" href="">About</a>
                     <a class="item" href="">How It Works</a>
                     <div class=" item">
                         {% if user.is_authenticated %}
-                            <a class="ui teal button" href="{% url 'shipper:order_create' %}">Create Order</a></a>
+                            <a class="ui blue button" href="{% url 'shipper:order_create' %}">Create Order</a></a>
                             <a class="ui inverted red button" href="{% url 'account_logout' %}">Sign Out</a>
                         {% else %}
                             <a class="ui green button" href="{% url 'account_login' %}">Login</a>

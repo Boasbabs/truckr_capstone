@@ -9,11 +9,11 @@
             <thead>
             <tr>
                 <th>No.</th>
+                <th>Material</th>
                 <th>Pickup Location</th>
                 <th>Destination</th>
-                <th>Material</th>
                 <th>Pickup Date</th>
-                <th>Matched Order</th>
+                <th>Matched Status</th>
 {#                <th>Invoice Status</th>#}
             </tr>
             </thead>
@@ -21,9 +21,9 @@
             {% for shipment in shipment_list %}
                 <tr>
                     <td>{{ shipment.id }}</td>
-                    <td><a href="{% url 'shipper:order_detail' shipment.id %}">{{ shipment.pickup_location }}</a></td>
+                    <td><a href="{% url 'shipper:order_detail' shipment.id %}">{{ shipment.cargo_material }}</a></td>
+                    <td>{{ shipment.pickup_location }}</td>
                     <td>{{ shipment.destination_location }}</td>
-                    <td>{{ shipment.cargo_material }}</td>
                     <td>{{ shipment.pickup_date }}</td>
                     {% if shipment.matched_order_to %}
                     <td>

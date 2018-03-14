@@ -1,0 +1,172 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Truckr Logistics -Drivers Home</title>
+    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
+    {% block stylesheets %}
+        <link href="{% static 'css/shipper/base.css' %}" rel="stylesheet" type="text/css" />
+    {% endblock %}
+</head>
+
+<!-- The top menu -->
+<body>
+
+<div id="site-siderbar" class="ui visible left vertical sidebar inverted borderless menu" style="">
+    <img src="/static/img/truckr-white-logo.png" class="ui big image" style="">
+{#    <h2 class="ui icon center inverted aligned grey header">#}
+{#        <i class="truck icon"></i>#}
+{#        <span class="content">#}
+{#            Truckr#}
+{#        </span>#}
+{#    </h2>#}
+    <div class="item">
+        <a href="{% url 'shipper:order_create' %}" class="ui teal labeled icon fluid button">
+            Create New Order
+            <i class="add icon"></i>
+        </a>
+    </div>
+    <div class="item">
+        <h4 class="ui grey header">
+            Sub Menu
+        </h4>
+    </div>
+{#    <a class="item" href="">#}
+{#        Current Order#}
+{#    </a>#}
+    <a class="item" href="{% url 'shipper:order_list' %}">
+        All your Orders <i class="ui bars icon"></i>
+    </a>
+    <a class="item">
+        Invoice History
+    </a>
+{#    <a class="item">#}
+{#        Success Transaction#}
+{#    </a>#}
+    <a class="item">
+        <i class="ui upload icon"></i> Upload Schedule
+    </a>
+    <a class="item">
+        Track Order
+    </a>
+    <div class="ui divider"></div>
+    <div class="item">
+        <h4 class="ui grey header">
+            Manage Account
+        </h4>
+    </div>
+    <a class="item" href="/accounts/password/reset">
+        <div class="ui teal empty circular label"></div>
+       Reset Password &nbsp;
+    </a>
+
+    <a class="item" href="/accounts/email/">
+        <div class="ui blue empty circular label"></div>
+        &nbsp;Manage Email
+    </a>
+
+    <a class="item">
+        <div class="ui pink empty circular label"></div>
+        &nbsp;
+    </a>
+    <div class="ui divider"></div>
+
+
+</div>
+<div class="pusher">
+    <!-- Site content !-->
+    <div id="site-container" class="" >
+        <div class="ui secondary pointing menu ">
+            <div class="item">
+                <h3 class="ui header">
+                    Your Truckr Home
+                </h3>
+            </div>
+            <div class="right menu">
+                <div class="ui dropdown item labeled icon">
+                    <i class="circular bell icon"></i>
+                    <div class="ui red mini label circular">3</div>
+                    <div class="menu">
+                        <div class="header">
+                            Notifications
+                        </div>
+                        <div class="item">
+                            Janice Robinson
+                        </div>
+                        <div class="item">
+                            Cynthia	May
+                        </div>
+                        <div class="item">
+                            Hugh Carter
+                        </div>
+                    </div>
+                </div>
+                <div class="ui dropdown item">
+                    <i class="ui circular settings icon"></i>Settings
+                    <div class="menu">
+                        <a class="item"><i class="united kingdom flag"></i>English</a>
+                        <a class="item"><i class="turkey flag"></i>Turkish</a>
+                        <a class="item"><i class="spain flag"></i>Spanish</a>
+                    </div>
+                </div>
+                <div class="ui dropdown item">
+                    <i class="ui inverted circular user blue icon"></i> {{ user.get_username }}
+                    <div class="menu">
+                        <a class="item" href="">Settings</a>
+                        <div class="ui divider"></div>
+                        <a class="item">Need Help?</a>
+                        <a class="item" href="/accounts/logout/">Sign Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui basic segment">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Javascript for the page -->
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/semantic.min.js' %}"></script>
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>    <link href="{% static 'css/semantic-ui/semantic.min.css' %}" rel="stylesheet" type="text/css" />
+
+{#<script src="{% static 'js/index.js' %}"></script>#}
+{% block scripts %}
+    <script>
+        $('.ui.sidebar').sidebar('show');
+        // to control the radio button
+        $('.ui.checkbox').checkbox();
+
+        // to invoke all dropdowns
+        $('.ui.dropdown').dropdown();
+        $('#cal-date').calendar({
+            type: 'date',
+            monthFirst: false,
+            formatter: {
+                date: function (date, settings) {
+                    if (!date) return '';
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    return month + '/' + day + '/' + year;
+                }
+            }
+        });
+        $('#invoice').modal('attach events', '.invoice.button', 'show');
+    </script>
+{% endblock %}
+</body>
+
+</html>
