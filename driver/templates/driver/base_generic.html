@@ -18,41 +18,32 @@
 
 <div id="site-siderbar" class="ui visible left vertical sidebar inverted borderless menu" style="">
     <img src="/static/img/truckr-white-logo.png" class="ui big image" style="">
-{#    <h2 class="ui icon center inverted aligned grey header">#}
-{#        <i class="truck icon"></i>#}
-{#        <span class="content">#}
-{#            Truckr#}
-{#        </span>#}
-{#    </h2>#}
-    <div class="item">
-        <a href="{% url 'shipper:order_create' %}" class="ui teal labeled icon fluid button">
-            Create New Order
-            <i class="add icon"></i>
-        </a>
-    </div>
+{##}
+{#    <div class="item">#}
+{#        <a href="" class="ui teal labeled icon fluid button">#}
+{#            Create New Order#}
+{#            <i class="add icon"></i>#}
+{#        </a>#}
+{#    </div>#}
     <div class="item">
         <h4 class="ui grey header">
             Sub Menu
         </h4>
     </div>
-{#    <a class="item" href="">#}
-{#        Current Order#}
-{#    </a>#}
-    <a class="item" href="{% url 'shipper:order_list' %}">
-        All your Orders <i class="ui bars icon"></i>
-    </a>
-    <a class="item">
-        Invoice History
+
+    <a class="item" href="{% url 'driver:request_list' %}">
+        All Shipment Request <i class="ui bars icon"></i>
     </a>
 {#    <a class="item">#}
-{#        Success Transaction#}
+{#        Invoice History#}
 {#    </a>#}
-    <a class="item">
-        <i class="ui upload icon"></i> Upload Schedule
-    </a>
-    <a class="item">
-        Track Order
-    </a>
+
+{#    <a class="item">#}
+{#        <i class="ui upload icon"></i> Upload Schedule#}
+{#    </a>#}
+{#    <a class="item">#}
+{#        Track Order#}
+{#    </a>#}
     <div class="ui divider"></div>
     <div class="item">
         <h4 class="ui grey header">

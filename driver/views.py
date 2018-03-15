@@ -16,5 +16,9 @@ def signup(request):
     return render(request, "driver/signup.html", context={})
 
 
-class DriverHomeView(generic.TemplateView):
-    template_name = "driver/dashboard.html"
+class DriverRequestDetailView(generic.TemplateView):
+    template_name = "driver/request_detail.html"
+
+
+class DriverRequestListView(generic.TemplateView):
+    template_name = "driver/request_list.html"
