@@ -99,13 +99,13 @@
                     <td>{{ shipment.cargo_weight }}</td>
                     <td>{{ shipment.pickup_date }}</td>
                     {% if shipment.matched_order_to %}
-                    <td>
-                        Match found
-                    </td>
+                        <td>
+                            Match found
+                        </td>
                     {% else %}
-                    <td>
-                        Match pending
-                    </td>
+                        <td>
+                            Match pending
+                        </td>
                     {% endif %}
                 </tr>
 
@@ -146,40 +146,42 @@
             <div class="ui grid">
                 <div class="row">
                     <div class="eight wide column">
-                        <div class="ui  segment">
+                        <div class="ui basic segment">
                             <div class="ui top attached medium teal label">Company Details</div>
                             <dl class="dl-horizontal">
                                 <dt>Name</dt>
                                 <dd ><strong>Noodles Corporation</strong></dd>
                                 <dt>Industry</dt>
                                 <dd >Food Department</dd>
-                                <dt>Address</dt>
-                                <dd>Field 3, Moon</dd>
                                 <dt>Phone</dt>
-                                <dd>123.4456.4567</dd>
+                                <dd>44564567</dd>
                                 <dt>Email</dt>
-                                <dd>mainl@acme.com</dd>
+                                <dd>mainl@noodlescorp.com</dd>
+                                <dt class=""><strong>Address</strong></dt>
+                                <dd>Field 3, Moon</dd>
+                                <dt><strong>Location</strong></dt>
+                                <dd ><strong>Accra</strong></dd>
 
                             </dl>
                         </div>
                     </div>
-                    <div class="eight wide column">
-                        <div class="ui segment">
-                            <div class="ui top attached medium label">Company Details</div>
-                            <dl class="dl-horizontal">
-                                <dt>Name</dt>
-                                <dd><strong>UAC Corporation</strong></dd>
-                                <dt>Industry</dt>
-                                <dd>Food Department</dd>
-                                <dt>Address</dt>
-                                <dd>One  Way Redmond, Ghana</dd>
-                                <dt>Phone</dt>
-                                <dd>(425) 882-8080</dd>
-                                <dt>Email</dt>
-                                <dd>contact@uaccorporation.com</dd>
-                            </dl>
-                        </div>
-                    </div>
+                    {#                    <div class="eight wide column">#}
+                    {#                        <div class="ui segment">#}
+                    {#                            <div class="ui top attached medium label">Company Details</div>#}
+                    {#                            <dl class="dl-horizontal">#}
+                    {#                                <dt>Name</dt>#}
+                    {#                                <dd><strong>UAC Corporation</strong></dd>#}
+                    {#                                <dt>Industry</dt>#}
+                    {#                                <dd>Food Department</dd>#}
+                    {#                                <dt>Address</dt>#}
+                    {#                                <dd>One  Way Redmond, Ghana</dd>#}
+                    {#                                <dt>Phone</dt>#}
+                    {#                                <dd>(425) 882-8080</dd>#}
+                    {#                                <dt>Email</dt>#}
+                    {#                                <dd>contact@uaccorporation.com</dd>#}
+                    {#                            </dl>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
                 <div class="row">
                     <table class="ui celled structured compact table">
@@ -190,7 +192,7 @@
                         <tr>
                             <th class="six wide">Details</th>
                             <th>Unit <i><small>$</small></i></th>
-                            <th>Sum Cost  <i><small>$</small></i></th>
+                            <th>Discount  <i><small>$</small></i></th>
                             <th>Total  <i><small>$</small></i></th>
                         </tr>
                         </thead>
@@ -225,19 +227,18 @@
                     </table>
                 </div>
                 <div class="row">
-                    <div class="eight wide column">
-                        <div class="ui  segment">
-                            <div class="ui top attached medium label">Comments Details</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit repudiandae numquam sit facere blanditiis, quasi distinctio ipsam? Libero odit ex expedita, facere sunt, possimus consectetur dolore, nobis iure amet vero.</p>
-                        </div>
-                    </div>
+                    {#                    <div class="eight wide column">#}
+                    {#                        <div class="ui  segment">#}
+                    {#                            <div class="ui top attached medium label">Comments Details</div>#}
+                    {#                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit repudiandae numquam sit facere blanditiis, quasi distinctio ipsam? Libero odit ex expedita, facere sunt, possimus consectetur dolore, nobis iure amet vero.</p>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="eight wide column">
                         <div class="ui segment">
-                            <div class="ui top attached medium label">Payment Methods</div>
-                            <p>For your convenience, you may deposite the final ammount at one of our banks</p>
+                            <div class="ui top attached medium label">Payment Details</div>
+                            {#                                    <p>For your convenience, you may deposit the final amount at one of our banks</p>#}
                             <ul class="ui list">
                                 <li class="item">Alpha Bank - <span class="mono">MO123456789456123</span></li>
-                                <li class="item">Beta Bank - <span class="mono">MO123456789456123</span></li>
                             </ul>
                         </div>
                     </div>
